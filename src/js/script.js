@@ -90,9 +90,11 @@ $(document).ready(function(){
             url: "mailer/smart.php",
             data: $(this).serialize()
         }).done(function() {
-            $(this).find("input").val("");
-
-            $('form').trigger('reset');
+          $(this).find("input").val("");
+          $('#consultation, #order').fadeOut();
+          $('.overlay, #thx').fadeIn('slow');
+          $('form').trigger('reset');
+          
         });
         return false;
     });
