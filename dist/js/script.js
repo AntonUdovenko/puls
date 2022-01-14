@@ -85,6 +85,9 @@ $(document).ready(function(){
 
       $('form').submit(function(e) {
         e.preventDefault();
+        if (!$(this).valid()) {
+          return;
+        }
         $.ajax({
             type: "POST",
             url: "mailer/smart.php",
@@ -94,7 +97,6 @@ $(document).ready(function(){
           $('#consultation, #order').fadeOut();
           $('.overlay, #thx').fadeIn('slow');
           $('form').trigger('reset');
-          
         });
         return false;
     });
